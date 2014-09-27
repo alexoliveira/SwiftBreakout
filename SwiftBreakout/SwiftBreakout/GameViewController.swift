@@ -40,7 +40,8 @@ class GameViewController: UIViewController {
             skView.ignoresSiblingOrder = true
             
             /* Set the scale mode to scale to fit the window */
-            scene.scaleMode = .AspectFill
+            scene.scaleMode = .AspectFit
+            scene.size = self.view.frame.size
             
             scene.physicsBody = SKPhysicsBody(edgeLoopFromRect: scene.frame)
             
