@@ -11,6 +11,7 @@ import SpriteKit
 class GameScene: SKScene {
     override func didMoveToView(view: SKView) {
         /* Setup your scene here */
+        self.physicsWorld.gravity = CGVector(0.0, 0.0)
         let ball = SKSpriteNode(imageNamed: "ball")
         let size = ball.texture?.size()
         if let size = size {
