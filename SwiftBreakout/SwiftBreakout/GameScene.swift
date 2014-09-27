@@ -12,7 +12,7 @@ class GameScene: SKScene {
     override func didMoveToView(view: SKView) {
         /* Setup your scene here */
         self.physicsWorld.gravity = CGVector(0.0, 0.0)
-        let ball = SKSpriteNode(imageNamed: "ball")
+        let ball = Ball(imageNamed: "ball")
         ball.name = "Ball"
         let size = ball.texture?.size()
         if let size = size {
@@ -22,7 +22,6 @@ class GameScene: SKScene {
         ball.position = CGPoint(x:CGRectGetMidX(self.frame), y:CGRectGetMidY(self.frame))
         self.addChild(ball)
         ball.physicsBody?.applyImpulse(CGVector(3, 3))
-
         self.generateBricks()
     }
     
