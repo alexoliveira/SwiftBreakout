@@ -20,8 +20,7 @@ class GameScene: SKScene {
         }
         ball.position = CGPoint(x:CGRectGetMidX(self.frame), y:CGRectGetMidY(self.frame))
         self.addChild(ball)
-        ball.physicsBody?.applyImpulse(CGVector(0, 3))
-        ball.speed = 10.0
+        ball.physicsBody?.applyImpulse(CGVector(3, 3))
         
         self.generateBricks()
     }

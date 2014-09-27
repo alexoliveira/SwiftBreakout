@@ -21,7 +21,7 @@ class BricksGenerator {
         if let size = brick.texture?.size() {
             brick.physicsBody = SKPhysicsBody(texture: brick.texture, size: size)
         }
-        brick.position = CGPoint(x:10, y:20)
+        brick.position = CGPoint(x:300, y:300)
         self.scene.addChild(brick)
     }
 }
