@@ -28,6 +28,11 @@ class GameScene: SKScene {
         ball.position = CGPoint(x:CGRectGetMidX(self.frame), y:CGRectGetMidY(self.frame))
         self.addChild(ball)
         ball.physicsBody?.applyImpulse(CGVector(3, 3))
+        
+        if let paddle = self.childNodeWithName("Paddle") {
+            paddle.position = CGPoint(x: CGRectGetMidX(self.frame), y: paddle.position.y)
+        }
+        
         self.generateBricks()
     }
     
