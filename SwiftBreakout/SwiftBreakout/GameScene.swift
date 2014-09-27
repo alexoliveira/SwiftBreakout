@@ -12,7 +12,10 @@ class GameScene: SKScene {
     override func didMoveToView(view: SKView) {
         /* Setup your scene here */
         let ball = SKSpriteNode(imageNamed: "ball")
-        ball.physicsBody = SKPhysicsBody()
+        let size = ball.texture?.size()
+        if let s = size {
+            ball.physicsBody = SKPhysicsBody(texture: ball.texture, size: s)
+        }
         ball.position = CGPoint(x:CGRectGetMidX(self.frame), y:CGRectGetMidY(self.frame))
         self.addChild(ball)
         
