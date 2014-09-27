@@ -23,19 +23,19 @@ class GameScene: SKScene {
         /* Called when a touch begins */
         
         for touch: AnyObject in touches {
-            let location = touch.locationInNode(self)
-            
-            let sprite = SKSpriteNode(imageNamed:"Spaceship")
-            
-            sprite.xScale = 0.5
-            sprite.yScale = 0.5
-            sprite.position = location
-            
-            let action = SKAction.rotateByAngle(CGFloat(M_PI), duration:1)
-            
-            sprite.runAction(SKAction.repeatActionForever(action))
-            
-            self.addChild(sprite)
+        }
+    }
+    
+    override func touchesMoved(touches: NSSet, withEvent event: UIEvent) {
+        let paddle = self.childNodeWithName("Paddle")
+        let touch: AnyObject? = touches.anyObject()
+        let positionInScene = touch?.locationInNode(self)
+        
+        if let pad = paddle {
+            if let pos = positionInScene {
+                let action = SKAction.moveTo(CGPoint(x: pos.x, y: pad.position.y), duration: 0)
+                paddle?.runAction(action)
+            }
         }
     }
    
