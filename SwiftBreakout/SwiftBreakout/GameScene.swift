@@ -13,12 +13,14 @@ class GameScene: SKScene {
         /* Setup your scene here */
         self.physicsWorld.gravity = CGVector(0.0, 0.0)
         let ball = SKSpriteNode(imageNamed: "ball")
+        ball.name = "Ball"
         let size = ball.texture?.size()
         if let size = size {
             ball.physicsBody = SKPhysicsBody(texture: ball.texture, size: size)
         }
         ball.position = CGPoint(x:CGRectGetMidX(self.frame), y:CGRectGetMidY(self.frame))
         self.addChild(ball)
+        ball.physicsBody?.applyImpulse(CGVector(0, 3))
         ball.speed = 10.0
         
         self.generateBricks()
