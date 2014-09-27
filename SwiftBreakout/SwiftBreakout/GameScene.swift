@@ -34,10 +34,10 @@ class GameScene: SKScene {
         let touch: AnyObject? = touches.anyObject()
         let positionInScene = touch?.locationInNode(self)
         
-        if let pad = paddle {
-            if let pos = positionInScene {
-                let action = SKAction.moveTo(CGPoint(x: pos.x, y: pad.position.y), duration: 0)
-                paddle?.runAction(action)
+        if let paddle = paddle {
+            if let positionInScene = positionInScene {
+                let action = SKAction.moveTo(CGPoint(x: positionInScene.x, y: paddle.position.y), duration: 0)
+                paddle.runAction(action)
             }
         }
     }
