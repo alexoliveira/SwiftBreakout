@@ -16,12 +16,13 @@ class GameScene: SKScene {
         ball.name = "Ball"
         let size = ball.texture?.size()
         if let size = size {
-            ball.physicsBody = SKPhysicsBody(texture: ball.texture, size: size)
+            ball.physicsBody = SKPhysicsBody(circleOfRadius:ball.size.width / 2)
+            ball.physicsBody?.restitution = 1.0
         }
         ball.position = CGPoint(x:CGRectGetMidX(self.frame), y:CGRectGetMidY(self.frame))
         self.addChild(ball)
         ball.physicsBody?.applyImpulse(CGVector(3, 3))
-        
+
         self.generateBricks()
     }
     
