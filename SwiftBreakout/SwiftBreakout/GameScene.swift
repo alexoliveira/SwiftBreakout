@@ -12,12 +12,18 @@ class GameScene: SKScene {
     override func didMoveToView(view: SKView) {
         /* Setup your scene here */
         self.physicsWorld.gravity = CGVector(0.0, 0.0)
+        self.physicsBody = SKPhysicsBody(edgeLoopFromRect: self.frame)
+        self.physicsBody?.restitution = 1.0
+        self.physicsBody?.friction = 0.0
         let ball = Ball(imageNamed: "ball")
         ball.name = "Ball"
         let size = ball.texture?.size()
         if let size = size {
             ball.physicsBody = SKPhysicsBody(circleOfRadius:ball.size.width / 2)
             ball.physicsBody?.restitution = 1.0
+            ball.physicsBody?.friction = 0.0
+            ball.physicsBody?.linearDamping = 0.0
+            ball.physicsBody?.allowsRotation = false
         }
         ball.position = CGPoint(x:CGRectGetMidX(self.frame), y:CGRectGetMidY(self.frame))
         self.addChild(ball)

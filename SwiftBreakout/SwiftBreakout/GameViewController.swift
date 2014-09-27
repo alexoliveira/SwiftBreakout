@@ -43,8 +43,6 @@ class GameViewController: UIViewController {
             scene.scaleMode = .AspectFit
             scene.size = self.view.frame.size
             
-            scene.physicsBody = SKPhysicsBody(edgeLoopFromRect: scene.frame)
-            
             skView.presentScene(scene)
         }
     }
