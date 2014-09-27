@@ -15,25 +15,14 @@ class GameScene: SKScene {
         self.physicsBody = SKPhysicsBody(edgeLoopFromRect: self.frame)
         self.physicsBody?.restitution = 1.0
         self.physicsBody?.friction = 0.0
-        let ball = Ball(imageNamed: "ball")
-        ball.name = "Ball"
-        let size = ball.texture?.size()
-        if let size = size {
-            ball.physicsBody = SKPhysicsBody(circleOfRadius:ball.size.width / 2)
-            ball.physicsBody?.restitution = 1.0
-            ball.physicsBody?.friction = 0.0
-            ball.physicsBody?.linearDamping = 0.0
-            ball.physicsBody?.allowsRotation = false
-        }
-        ball.position = CGPoint(x:CGRectGetMidX(self.frame), y:CGRectGetMidY(self.frame))
+        let ball = Ball()
         self.addChild(ball)
-        ball.physicsBody?.applyImpulse(CGVector(3, 3))
         
-        if let paddle = self.childNodeWithName("Paddle") {
-            paddle.position = CGPoint(x: CGRectGetMidX(self.frame), y: paddle.position.y)
-            paddle.physicsBody?.dynamic = false
-            paddle.physicsBody?.friction = 1.0
-        }
+        let paddle = Paddle()
+        self.addChild(paddle)
+        
+        ball.physicsBody?.applyImpulse(CGVector(3, 3))
+        paddle.position = CGPoint(x: CGRectGetMidX(self.frame), y: paddle.position.y)
         
         self.generateBricks()
     }
