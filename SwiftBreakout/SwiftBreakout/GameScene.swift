@@ -19,8 +19,9 @@ class GameScene: SKScene {
         }
         ball.position = CGPoint(x:CGRectGetMidX(self.frame), y:CGRectGetMidY(self.frame))
         self.addChild(ball)
-        
         ball.speed = 10.0
+        
+        self.generateBricks()
     }
     
     override func touchesBegan(touches: NSSet, withEvent event: UIEvent) {
@@ -45,5 +46,10 @@ class GameScene: SKScene {
    
     override func update(currentTime: CFTimeInterval) {
         /* Called before each frame is rendered */
+    }
+    
+    func generateBricks() {
+        let generator = BricksGenerator(scene: self)
+        generator.createDefaultBricksPattern()
     }
 }
