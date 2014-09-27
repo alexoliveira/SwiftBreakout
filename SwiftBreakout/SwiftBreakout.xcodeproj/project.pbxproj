@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		455E7CA519D7602B0010BD9D /* BricksGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 455E7CA419D7602B0010BD9D /* BricksGenerator.swift */; };
+		455E7CA719D7748A0010BD9D /* Brick.swift in Sources */ = {isa = PBXBuildFile; fileRef = 455E7CA619D7748A0010BD9D /* Brick.swift */; };
 		72DB722F19D76C5D00A0165E /* Ball.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72DB722E19D76C5D00A0165E /* Ball.swift */; };
 		B038174119D746B400D61879 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B038174019D746B400D61879 /* AppDelegate.swift */; };
 		B038174319D746B400D61879 /* GameScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = B038174219D746B400D61879 /* GameScene.sks */; };
@@ -31,6 +32,7 @@
 
 /* Begin PBXFileReference section */
 		455E7CA419D7602B0010BD9D /* BricksGenerator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BricksGenerator.swift; sourceTree = "<group>"; };
+		455E7CA619D7748A0010BD9D /* Brick.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Brick.swift; sourceTree = "<group>"; };
 		72DB722E19D76C5D00A0165E /* Ball.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Ball.swift; sourceTree = "<group>"; };
 		B038173B19D746B400D61879 /* SwiftBreakout.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SwiftBreakout.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B038173F19D746B400D61879 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -95,6 +97,7 @@
 				B038174D19D746B400D61879 /* LaunchScreen.xib */,
 				B038173E19D746B400D61879 /* Supporting Files */,
 				455E7CA419D7602B0010BD9D /* BricksGenerator.swift */,
+				455E7CA619D7748A0010BD9D /* Brick.swift */,
 			);
 			path = SwiftBreakout;
 			sourceTree = "<group>";
@@ -230,6 +233,7 @@
 				72DB722F19D76C5D00A0165E /* Ball.swift in Sources */,
 				B038174719D746B400D61879 /* GameViewController.swift in Sources */,
 				B038174119D746B400D61879 /* AppDelegate.swift in Sources */,
+				455E7CA719D7748A0010BD9D /* Brick.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

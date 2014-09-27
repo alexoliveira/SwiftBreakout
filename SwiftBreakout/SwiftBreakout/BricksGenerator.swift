@@ -19,38 +19,21 @@ class BricksGenerator {
     func createDefaultBricksPattern() {
         // Row 1
         for i in 1...8 {
-            let brick = SKSpriteNode(imageNamed: "brick")
-            if let size = brick.texture?.size() {
-                brick.physicsBody = SKPhysicsBody(texture: brick.texture, size: size)
-                brick.physicsBody?.mass = 40
+            for j in 1...3 {
+                let brick = SKSpriteNode(imageNamed: "brick")
+                if let size = brick.texture?.size() {
+                    brick.physicsBody = SKPhysicsBody(texture: brick.texture, size: size)
+                    brick.physicsBody?.mass = 40
+                    brick.physicsBody?.restitution = 1.0
+                    brick.physicsBody?.friction = 0.0
+                    brick.physicsBody?.linearDamping = 0.0
+                    brick.physicsBody?.allowsRotation = false
+                    brick.physicsBody?.dynamic = false;
+                }
+                let w = Int(brick.size.width)
+                brick.position = CGPoint(x:10+w*i, y:600-20*j)
+                self.scene.addChild(brick)
             }
-            let w = Int(brick.size.width)
-            brick.position = CGPoint(x:10+w*i, y:600)
-            self.scene.addChild(brick)
-        }
-        
-        // Row 2
-        for i in 1...8 {
-            let brick = SKSpriteNode(imageNamed: "brick")
-            if let size = brick.texture?.size() {
-                brick.physicsBody = SKPhysicsBody(texture: brick.texture, size: size)
-                brick.physicsBody?.mass = 40
-            }
-            let w = Int(brick.size.width)
-            brick.position = CGPoint(x:10+w*i, y:580)
-            self.scene.addChild(brick)
-        }
-        
-        // Row 3
-        for i in 1...8 {
-            let brick = SKSpriteNode(imageNamed: "brick")
-            if let size = brick.texture?.size() {
-                brick.physicsBody = SKPhysicsBody(texture: brick.texture, size: size)
-                brick.physicsBody?.mass = 40
-            }
-            let w = Int(brick.size.width)
-            brick.position = CGPoint(x:10+w*i, y:560)
-            self.scene.addChild(brick)
         }
     }
 }
