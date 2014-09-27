@@ -31,6 +31,8 @@ class GameScene: SKScene {
         
         if let paddle = self.childNodeWithName("Paddle") {
             paddle.position = CGPoint(x: CGRectGetMidX(self.frame), y: paddle.position.y)
+            paddle.physicsBody?.dynamic = false
+            paddle.physicsBody?.friction = 1.0
         }
         
         self.generateBricks()
