@@ -8,10 +8,15 @@
 
 import SpriteKit
 
-class GameScene: SKScene {
+let paddleCategory : UInt32 = 1 << 0
+let ballCategory : UInt32 = 1 << 1
+let brickCategory : UInt32 = 1 << 2
+
+class GameScene: SKScene, SKPhysicsContactDelegate {
     override func didMoveToView(view: SKView) {
         /* Setup your scene here */
         self.physicsWorld.gravity = CGVector(0.0, 0.0)
+        self.physicsWorld.contactDelegate = self;
         self.physicsBody = SKPhysicsBody(edgeLoopFromRect: self.frame)
         self.physicsBody?.restitution = 1.0
         self.physicsBody?.friction = 0.0
@@ -54,5 +59,13 @@ class GameScene: SKScene {
     func generateBricks() {
         let generator = BricksGenerator(scene: self)
         generator.createDefaultBricksPattern()
+    }
+    func didBeginContact(contact: SKPhysicsContact) {
+        if contact.bodyA.node?.name == "Brick" {
+            contact.bodyA.node?.removeFromParent();
+        }
+        if contact.bodyB.node?.name == "Brick" {
+            contact.bodyB.node?.removeFromParent();
+        }
     }
 }

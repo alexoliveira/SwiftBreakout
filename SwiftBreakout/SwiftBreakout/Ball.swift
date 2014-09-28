@@ -20,6 +20,10 @@ class Ball: SKSpriteNode {
         self.physicsBody?.linearDamping = 0.0
         self.physicsBody?.allowsRotation = false
         self.position = CGPoint(x:CGRectGetMidX(self.frame), y:CGRectGetMidY(self.frame))
+        
+        self.physicsBody?.categoryBitMask = ballCategory
+        self.physicsBody?.collisionBitMask = ballCategory | brickCategory | paddleCategory
+        self.physicsBody?.contactTestBitMask = ballCategory | brickCategory | paddleCategory
     }
 
     required init(coder aDecoder: NSCoder) {

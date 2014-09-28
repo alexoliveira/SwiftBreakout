@@ -36,7 +36,12 @@ class BricksGenerator {
             brick.physicsBody?.friction = 0.0
             brick.physicsBody?.linearDamping = 0.0
             brick.physicsBody?.allowsRotation = false
-            brick.physicsBody?.dynamic = false;
+            brick.physicsBody?.dynamic = false
+            brick.name = "Brick"
+            
+            brick.physicsBody?.categoryBitMask = brickCategory
+            brick.physicsBody?.collisionBitMask = ballCategory | paddleCategory
+            brick.physicsBody?.contactTestBitMask = ballCategory | paddleCategory
         }
         return brick
     }
