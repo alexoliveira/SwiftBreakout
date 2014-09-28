@@ -61,11 +61,10 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         generator.createDefaultBricksPattern()
     }
     func didBeginContact(contact: SKPhysicsContact) {
-        if contact.bodyA.node?.name == "Brick" {
-            contact.bodyA.node?.removeFromParent();
-        }
-        if contact.bodyB.node?.name == "Brick" {
-            contact.bodyB.node?.removeFromParent();
+        for node in [contact.bodyA.node, contact.bodyB.node] {
+            if node?.name == "Brick" {
+                node?.removeFromParent()
+            }
         }
     }
 }
