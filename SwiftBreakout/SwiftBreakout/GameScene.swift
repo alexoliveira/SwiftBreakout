@@ -61,10 +61,28 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         generator.createDefaultBricksPattern()
     }
     func didBeginContact(contact: SKPhysicsContact) {
-        for node in [contact.bodyA.node, contact.bodyB.node] {
+        var contactBodies = [contact.bodyA.node, contact.bodyB.node]
+        for node in contactBodies {
             if node?.name == "Brick" {
                 node?.removeFromParent()
             }
+        }
+        var paddle = self.childNodeWithName("Paddle")!
+        if contactBodies[0] == paddle || contactBodies[1] == paddle {
+            var xImpulse = contact.contactPoint.x - paddle.position.x
+            var ball = self.childNodeWithName("Ball")
+            ball?.physicsBody?.applyImpulse(CGVector(xImpulse,0))
+            if let velocity = ball?.physicsBody?.velocity {
+                ball?.physicsBody?.velocity = CGVector(min(velocity.dx, 300), min(velocity.dy, 300))
+            }
+        }
+        if contact.contactPoint.y < 10 {
+            let myLabel = SKLabelNode(fontNamed:"Chalkduster")
+            myLabel.text = "You Lost!";
+            myLabel.fontSize = 65;
+            myLabel.fontColor = UIColor.blackColor()
+            myLabel.position = CGPoint(x:CGRectGetMidX(self.frame), y:CGRectGetMidY(self.frame));
+            self.addChild(myLabel)
         }
     }
 }
