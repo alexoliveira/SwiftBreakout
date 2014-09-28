@@ -18,6 +18,10 @@ class Paddle: SKSpriteNode {
         self.physicsBody?.dynamic = false
         self.physicsBody?.allowsRotation = false
         self.position = CGPoint(x:CGRectGetMidX(self.frame), y:CGRectGetMidY(self.frame) + 30)
+        
+        self.physicsBody?.categoryBitMask = paddleCategory
+        self.physicsBody?.collisionBitMask = ballCategory | brickCategory | paddleCategory
+        self.physicsBody?.contactTestBitMask = ballCategory | brickCategory | paddleCategory
     }
     
     required init(coder aDecoder: NSCoder) {
